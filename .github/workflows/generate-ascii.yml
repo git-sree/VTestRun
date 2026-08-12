@@ -2,7 +2,20 @@ name: Generate ascii art work
 on: push
 
 jobs:
+    build_job:
+        runs_on: ubuntu-latest
+        steps:
+            - name: execute first code
+              run: sleep 30
+    test_job:
+        needs: build_job
+        runs_on: ubuntu-latest
+        steps:
+            - name: execute test job
+              run: sleep 30
+            
     ascii_job:
+        needs: test_job
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
