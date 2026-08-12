@@ -8,7 +8,9 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v7
             - name: Execute script
-              run: ./ascii-scripts.sh
+              run: | 
+                chmod +x ascii-scripts.sh
+                ./ascii-scripts.sh
             # - name: install cowsay packge
             #   run: sudo apt-get install cowsay -y
             # - name: execute cowsay cmd
