@@ -2,35 +2,25 @@ name: Generate ascii art work
 on: push
 
 jobs:
-    build_job:
-        runs_on: ubuntu-latest
-        steps:
-            - name: execute first code
-              run: sleep 30
-    test_job:
-        needs: build_job
-        runs_on: ubuntu-latest
-        steps:
-            - name: execute test job
-              run: sleep 30
-            
-    ascii_job:
-        needs: test_job
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout repo
-              uses: actions/checkout@v7
-            - name: Execute script
-              run: | 
-                chmod +x ascii-scripts.sh
-                ./ascii-scripts.sh
-            # - name: install cowsay packge
-            #   run: sudo apt-get install cowsay -y
-            # - name: execute cowsay cmd
-            #   run: cowsay -f dragon " run for cover, i am dragong. rwar"  >> dragon.txt
-            # - name: Test file exists
-            #   run: grep -i "dragon" dragon.txt
-            # - name: read file
-            #   run: cat dragon.txt
-            # - name: list repo files
-            #   run: ls -lart
+  build_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: execute first code
+        run: sleep 30
+
+  test_job:
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: execute test job
+        run: sleep 30
+
+  ascii_job:
+    needs: test_job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute script
+        run: |
+          chmod +x ascii-scripts.sh
+          ./ascii-scripts.sh
