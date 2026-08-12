@@ -1,0 +1,19 @@
+name: Generate ascii art work
+on: push
+
+jobs:
+    ascii_job:
+        runs_on: ubuntu-latest
+    steps:
+        - name: checkout repo
+          uses: actions/checkout@v7
+        - name: install cowsay packge
+          run: sudo apt-get install cowsay -y
+        - name: execute cowsay cmd
+          run: cowsay -f dragon " run for cover, i am dragong. rwar"  >> dragon.txt
+        - name: Test file exists
+          run: grep -i "dragon" dragon.txt
+        - name: read file
+          run: cat dragon.txt
+        - name: list repo files
+          run: ls -lart

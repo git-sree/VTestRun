@@ -8,10 +8,16 @@ jobs:
             - name: checkout
               uses: actions/checkout@v7
             - name: welcome message
-              run: echo "my first job"
-            - name: currect dir
-              run: pwd
-            - name: list the files
-              run: ls
-            - name: read file
-              run: cat README.md
+              run: | 
+                echo "my first job"
+                pwd
+                ls -lart
+                cat README.md
+            - name: Generate ASCII art work
+              run: cowsay -f dragon " run for cover, i am dragong. rwar"  >> dragon.txt
+            # - name: currect dir
+            #   run: pwd
+            # - name: list the files
+            #   run: ls
+            # - name: read file
+            #   run: cat README.md
