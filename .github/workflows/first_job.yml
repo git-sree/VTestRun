@@ -5,9 +5,13 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
+            - name: checkout
+              usage: actions/checkout@v7
             - name: welcome message
               run: echo "my first job"
+            - name: currect dir
+              run: pwd
             - name: list the files
               run: ls
-            # - name: read file
-            #   run: cat README.md
+            - name: read file
+              run: cat ~/README.md
